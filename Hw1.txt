@@ -1,0 +1,45 @@
+(一)
+import Foundation
+
+func fac(_ num: Double) -> Double{
+    if num == 0{
+        return 1
+    }
+    else{
+        return num * fac(num - 1)
+    }
+}
+
+func getE(_ num: Double) -> Double{
+    if num == 0{
+        return 0
+    }
+    else{
+        return (1 / fac(num-1)) + getE(num - 1)
+    }
+}
+
+var n: Double = 100
+print(getE(n))
+
+(二)
+import Foundation
+
+func gradeLevel(_ num: [Int]) -> (A: Int, B: Int, C: Int) {
+    var A: Int = 0, B: Int = 0, C: Int = 0
+    for score in num{
+        if score >= 80 && score <= 100{
+            A += 1
+        }
+        else if score >= 60 && score <= 79{
+            B += 1
+        }
+        else{
+            C += 1
+        }
+    }
+    return (A, B, C)
+}
+
+let stas = gradeLevel([80, 90, 75, 50])
+print("A:",stas.A, "\nB:",stas.B, "\nC:",stas.C)
